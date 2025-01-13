@@ -1,0 +1,39 @@
+.exploreList {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+}
+.exploreList h1 {
+  color: rgb(26, 106, 191);
+  font-weight: 500;
+  margin-left: 20px;
+}
+.exploreListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 20px 20px;
+  overflow-x: auto;
+}
+.exploreListItem::-webkit-scrollbar {
+  display: none;
+}
+.exploreListItemMenu img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.exploreList hr {
+  height: 2px;
+  margin: 2px 0px;
+  background-color: rgb(23, 74, 91);
+}
+.exploreListItemMenu .active {
+  border: 3px solid rgb(233, 99, 47);
+  box-shadow: 1px 1px 2px rgb(78, 76, 76), 2px 0 25px rgb(117, 127, 138),
+    0 0 5px rgb(175, 95, 33);
+  padding: 2px;
+}

@@ -1,0 +1,62 @@
+.productDetails {
+  /* Overall container styling */
+  display: flex;
+  /* position: relative; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  height: 100vh; /* Adjust height as needed */
+}
+
+.div {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: start;
+  width: 500px;
+  /* gap: 20px; */
+  text-align: center;
+
+  overflow-x: auto;
+}
+.div::-webkit-scrollbar {
+  display: none;
+}
+.productDetails img {
+  /* Image styling */
+  width: 400px; /* Adjust width as needed */
+  height: 300px; /* Adjust height as needed */
+  object-fit: cover;
+}
+
+.productDetails h2 {
+  /* Heading styling */
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.productDetails p {
+  /* Paragraph styling */
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.recommendedProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+/* .recommendedProducts { */
+/* Styling for recommended products */
+/* width: 200px; Adjust width as needed */
+/* margin: 10px; */
+/* Other styles */
+/* } */
+.recommendedProducts img {
+  /* Image styling */
+  width: 200px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  object-fit: cover;
+}

@@ -1,0 +1,106 @@
+.exploreProducts {
+  /* height: 350px; */
+  width: auto;
+  /* width: 100%; */
+  text-align: center;
+  color: white;
+  padding-left: 5px;
+  /* background-color: black; */
+  text-align: center;
+  /* padding-bottom: 5px; */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  cursor: pointer;
+
+  /* grid-template-columns: repeat(10, 1fr); */
+  justify-content: space-evenly;
+  /* overflow-y: auto; */
+
+  /* background-color: blue; */
+}
+/* .exploreProducts::-webkit-scrollbar {
+  width: 10px;
+} */
+.exploreProducts .exploreProductsMenu {
+  height: 300px;
+  width: 230px;
+  /* line-height: 150px; */
+  text-align: center;
+  color: aqua;
+  margin-right: 5px;
+  background-color: #dcd9d947;
+  /* background-color: rgba(0, 0, 0, 0.262); */
+  margin: 5px 18px;
+  border: 0.1px solid rgba(154, 151, 151, 0.593);
+  border-radius: 20px;
+  display: flex;
+  font-size: medium;
+  flex-direction: column;
+  cursor: pointer;
+  /* justify-content:; */
+}
+.exploreProductsMenu h3 {
+  font-size: 16px;
+  color: rgb(130, 118, 54);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.exploreProductsMenu p {
+  font-size: 14px;
+  color: rgb(130, 118, 54);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.exploreProductsMenu img {
+  height: 150px;
+  width: 150px;
+  align-self: center;
+  justify-self: center;
+  width: fit-content;
+  margin-top: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgb(12, 93, 144);
+}
+.exploreProductsMenu:hover {
+  transition-delay: 1.2s;
+  background-color: rgba(4, 255, 46, 0.107);
+  height: 400px;
+  animation: fadein 12s;
+}
+@keyframes fadein {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width: 700px) {
+  .exploreProducts {
+    /* height: 350px; */
+    width: 100vw;
+  }
+  .exploreProducts .exploreProductsMenu {
+    /* height: 250px; */
+    width: 200px;
+  }
+}
+@media (max-width: 550px) {
+  .exploreProducts {
+    /* height: 350px; */
+    width: 100vw;
+  }
+  .exploreProducts .exploreProductsMenu {
+    /* height: 250px; */
+    /* width: 200px; */
+    margin: 5px 12px;
+  }
+  .exploreProductsMenu img {
+    height: 120px;
+    width: 120px;
+  }
+}

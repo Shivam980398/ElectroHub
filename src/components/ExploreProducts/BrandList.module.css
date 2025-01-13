@@ -1,0 +1,38 @@
+.exploreMenu {
+  /* display: flex; */
+  flex-direction: column;
+  /* border: 1px solid black; */
+}
+.exploreMenu h2 {
+  color: rgb(26, 106, 191);
+  font-weight: 500;
+  margin-left: 20px;
+}
+.exploreMenuItem {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 20px 0px;
+  overflow-x: auto;
+}
+.exploreMenuItem::-webkit-scrollbar {
+  display: none;
+}
+.exploreMenuItemList img {
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.exploreMenu hr {
+  height: 2px;
+  margin: 2px 0px;
+  background-color: rgb(23, 74, 91);
+}
+.exploreMenuItemList .active {
+  border: 3px solid rgb(0, 255, 191);
+  box-shadow: 1px 1px 2px black, 2px 0 25px blue, 0 0 5px darkblue;
+  padding: 2px;
+}
