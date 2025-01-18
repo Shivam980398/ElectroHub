@@ -104,3 +104,13 @@
     width: 120px;
   }
 }
+
+/* Add this in your CSS file (e.g., Products.module.css) */
+.toastContainerCenter {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}

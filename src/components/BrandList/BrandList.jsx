@@ -1,10 +1,10 @@
-import { useState } from "react";
+// import { useState } from "react";
 import style from "./BrandList.module.css";
 import { menu_list } from "../../assets/frontend_assets/assets.js";
-import Products from "./Products.jsx";
+// import Products from "./Products.jsx";
 import ItemDisplay from "../../ItemDisplay/ItemDisplay.jsx";
 
-const MenuItems = ({ category, setCategory, type, settype }) => {
+const BrandList = ({ category, setCategory, type, settype, searchTerm }) => {
   // Use a Set to keep track of displayed brands
   const displayedBrands = new Set();
 
@@ -44,9 +44,10 @@ const MenuItems = ({ category, setCategory, type, settype }) => {
         settype={settype}
         category={category}
         setCategory={setCategory}
+        searchTerm={searchTerm}
       ></ItemDisplay>
     </div>
   );
 };
 
-export default MenuItems;
+export default BrandList;

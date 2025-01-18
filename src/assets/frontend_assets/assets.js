@@ -133,6 +133,11 @@ export const menu_list = [
     menu_image: acer,
     category: "Laptops",
   },
+  {
+    menu_name: "Samsung",
+    menu_image: AC,
+    category: "AC",
+  },
 ];
 
 export const menu_products = [
@@ -142,7 +147,7 @@ export const menu_products = [
     image: smarttv,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Samsung S23: Cutting-edge smart TV with immersive picture quality, 4K resolution, and voice control.",
     type: "Samsung",
     category: "Tv",
   },
@@ -152,18 +157,17 @@ export const menu_products = [
     image: laptop,
     price: "99$",
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Vivo Book: High-performance laptop with sleek design, 16GB RAM, 1TB SSD, and dedicated graphics.",
     type: "Vivo",
     category: "Laptops",
   },
-
   {
     _id: "3",
     name: "Oppo",
     image: smartphone,
-    price: 16,
+    price: "$16",
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Oppo: Stylish smartphone with 50MP triple camera, 8GB RAM, 128GB storage, and fast charging.",
     type: "Oppo",
     category: "Mobile",
   },
@@ -173,8 +177,8 @@ export const menu_products = [
     image: smartwatch,
     price: 24,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Oppo",
+      "Smart Watch: Sleek and functional watch with fitness tracking, heart rate monitoring, and smartphone notifications.",
+    type: "Oneplus",
     category: "Watch",
   },
   {
@@ -183,7 +187,7 @@ export const menu_products = [
     image: samsung,
     price: 14,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Samsung: Versatile mobile phone with a powerful processor, 6.7-inch AMOLED display, and 5G connectivity.",
     type: "Samsung",
     category: "Mobile",
   },
@@ -193,18 +197,17 @@ export const menu_products = [
     image: speakers,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Speaker: High-quality audio with deep bass, crystal-clear sound, and Bluetooth connectivity.",
     type: "Dell",
     category: "Speaker",
   },
   {
     _id: "7",
     name: "Samsung",
-    // image: samsung,
+    image: samsung,
     price: 20,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    image: samsung,
+      "Samsung: Reliable and innovative mobile with 128GB storage, 8GB RAM, and a long-lasting battery.",
     type: "Samsung",
     category: "Mobile",
   },
@@ -214,7 +217,7 @@ export const menu_products = [
     image: smartphone,
     price: 15,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Vivo: Experience seamless performance and stunning visuals with 5G support and a high-refresh-rate display.",
     type: "Vivo",
     category: "Mobile",
   },
@@ -224,7 +227,7 @@ export const menu_products = [
     image: fridge,
     price: 14,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Fridge: Spacious and energy-efficient refrigerator with a large capacity and multiple compartments.",
     type: "LG",
     category: "Fridge",
   },
@@ -234,7 +237,7 @@ export const menu_products = [
     image: Asus,
     price: 22,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Asus Rog Strix: Gaming laptop with high-end performance, 16GB RAM, RTX 3060 graphics, and 1TB SSD.",
     type: "Asus",
     category: "Laptops",
   },
@@ -244,7 +247,7 @@ export const menu_products = [
     image: laptop,
     price: 10,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Asus Tuff: Durable laptop with 8GB RAM, 512GB SSD, and military-grade durability for everyday use.",
     type: "Asus",
     category: "Laptops",
   },
@@ -254,7 +257,7 @@ export const menu_products = [
     image: laptop,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Hp Victus: Robust laptop with 16GB RAM, 512GB SSD, and dedicated graphics for smooth gaming and multitasking.",
     type: "HP",
     category: "Laptops",
   },
@@ -264,7 +267,7 @@ export const menu_products = [
     image: laptop,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Hp Pavillion: Stylish laptop with 8GB RAM, 256GB SSD, and a vibrant display for everyday use.",
     type: "HP",
     category: "Laptops",
   },
@@ -274,7 +277,7 @@ export const menu_products = [
     image: applelaptop,
     price: 18,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "MacBook Air: Ultra-light laptop with M2 chip, 8GB RAM, 256GB SSD, and exceptional battery life.",
     type: "Apple",
     category: "Laptops",
   },
@@ -284,7 +287,7 @@ export const menu_products = [
     image: applelaptop,
     price: 16,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "MacBook Air 5: The perfect blend of portability and powerful performance with M2 chip and 16GB RAM.",
     type: "Apple",
     category: "Laptops",
   },
@@ -294,7 +297,7 @@ export const menu_products = [
     image: smarttv,
     price: 24,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Samsung Smart TV: Experience stunning visuals with 4K resolution, HDR support, and a wide range of smart features.",
     type: "Samsung",
     category: "Smart Tv",
   },
@@ -304,7 +307,7 @@ export const menu_products = [
     image: AC,
     price: 14,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "AC 1.5 Ton: Efficient cooling for large rooms with advanced air purification and inverter technology.",
     type: "Samsung",
     category: "AC",
   },
@@ -314,7 +317,7 @@ export const menu_products = [
     image: AC,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "AC 1 Ton: Compact and efficient cooling solution for small spaces with energy-saving features.",
     type: "Samsung",
     category: "AC",
   },
@@ -324,7 +327,7 @@ export const menu_products = [
     image: AC,
     price: 20,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Samsung AC: Powerful air conditioning with energy-saving features and Wi-Fi connectivity.",
     type: "Samsung",
     category: "AC",
   },
@@ -334,7 +337,7 @@ export const menu_products = [
     image: fridge,
     price: 15,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Fridge: Keep your food fresh with advanced cooling technology and a spacious interior.",
     type: "Samsung",
     category: "Fridge",
   },
@@ -344,7 +347,7 @@ export const menu_products = [
     image: smartwatch,
     price: 14,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Smart Watch: Track your fitness, monitor your heart rate, and stay connected with smartphone notifications.",
     type: "Samsung",
     category: "Watch",
   },
@@ -354,7 +357,7 @@ export const menu_products = [
     image: smartwatch,
     price: 22,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Redmi Note 8 Smart Watch: Stylish design with comprehensive health tracking, including sleep monitoring and stress detection.",
     type: "Redmi",
     category: "Watch",
   },
@@ -364,7 +367,7 @@ export const menu_products = [
     image: smartphone,
     price: 10,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Redmi Note 12: A budget-friendly smartphone with 50MP main camera, 6GB RAM, and 128GB storage.",
     type: "Redmi",
     category: "SmartPhone",
   },
@@ -374,7 +377,7 @@ export const menu_products = [
     image: smartphone,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "Redmi: Reliable smartphone with excellent performance, 48MP dual camera, and a long-lasting battery.",
     type: "Redmi",
     category: "SmartPhone",
   },
@@ -384,78 +387,8 @@ export const menu_products = [
     image: smartphone,
     price: 12,
     description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
+      "iPhone 15 Pro: The latest iPhone with A17 Bionic chip, Pro camera system, and durable design.",
     type: "Apple",
     category: "SmartPhone",
-  },
-  {
-    _id: "26",
-    name: "Iphone 14 ",
-    image: smartphone,
-    price: 18,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Apple",
-    category: "SmartPhone",
-  },
-  {
-    _id: "27",
-    name: "MacBook",
-    image: applelaptop,
-    price: 16,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Apple",
-    category: "Laptops",
-  },
-  {
-    _id: "28",
-    name: "MAcbook air 6",
-    image: applelaptop,
-    price: 24,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Apple",
-    category: "Laptops",
-  },
-  {
-    _id: "29",
-    name: "Lenovo",
-    image: laptop,
-    price: 14,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "lenovo",
-    category: "Laptops",
-  },
-  {
-    _id: "30",
-    name: "Ultra HD 8K Camera",
-    image: cameras,
-    price: 12,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Samsung",
-    category: "Cameras",
-  },
-  {
-    _id: "31",
-    name: "Speakers ",
-    image: speakers,
-    price: 20,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Oppo",
-    category: "Speakers",
-  },
-  {
-    _id: "32",
-    name: "Oppo f15",
-    image: smartphone,
-    price: 15,
-    description:
-      "OnePlus 10R 5G (Sierra Black, 8GB RAM, 128GB Storage, 80W SuperVOOC)",
-    type: "Oppo",
-    category: "Mobile",
   },
 ];

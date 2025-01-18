@@ -10,11 +10,20 @@ import "./App.css";
 
 const App = () => {
   const [displayLogin, setDisplayLogin] = useState(false);
+  const [isActive, setActive] = useState("Home");
+  // const [searchTerm, setSearchTerm] = useState("");
+  // const handleSearch = (term) => {
+  //   setSearchTerm(term);
+  // };
 
   return (
     <>
+      <NavBar
+        setDisplayLogin={setDisplayLogin}
+        isActive={isActive}
+        setActive={setActive}
+      />
       {displayLogin ? <Login setDisplayLogin={setDisplayLogin} /> : <></>}
-      <NavBar setDisplayLogin={setDisplayLogin} />
       <br />
       <br />
       <br />
@@ -23,7 +32,10 @@ const App = () => {
       <br />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Cart" element={<Cart />} />
+        <Route
+          path="/Cart"
+          element={<Cart isActive={isActive} setActive={setActive} />}
+        />
         <Route path="/About" element={<AboutUs />} />
         {/* <Route path="/product/:productId" element={<ProductDetails />} /> */}
       </Routes>

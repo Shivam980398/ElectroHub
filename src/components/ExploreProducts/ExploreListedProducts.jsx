@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import style from "./ExploreListedProducts.module.css";
 import { menu_item } from "../../assets/frontend_assets/assets";
-import MenuDisplay from "../../MenuDisplay/MenuDisplay";
-const ExploreItems = ({ category, setCategory, type, settype }) => {
+import BrandDisplay from "../../BrandDisplay/BrandDisplay";
+const ExploreListedItems = ({ category, setCategory }) => {
   // const [items, setItems] = useState("All");
   return (
     <div>
       <div className={style.exploreList}>
-        <h1>Explore Products </h1>
+        <h1>Explore Products or Devices </h1>
         <div className={style.exploreListItem}>
           {menu_item.map((item, index) => {
             return (
@@ -32,10 +32,13 @@ const ExploreItems = ({ category, setCategory, type, settype }) => {
         </div>
       </div>
       <hr />
-      <MenuDisplay category={category} setCategory={setCategory}></MenuDisplay>
+      <BrandDisplay
+        category={category}
+        setCategory={setCategory}
+      ></BrandDisplay>
       <hr />
     </div>
   );
 };
 
-export default ExploreItems;
+export default ExploreListedItems;

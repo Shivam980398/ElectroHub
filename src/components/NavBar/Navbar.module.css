@@ -127,9 +127,14 @@ li:hover {
   .navBar {
     width: 90vw;
     margin-right: 10px;
+    /* height: fixed; */
   }
   .navLinks {
     display: none;
+  }
+  .showMenu {
+    display: flex;
+    flex-direction: row;
   }
   .menu {
     /* display: flex; */

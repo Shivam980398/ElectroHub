@@ -19,7 +19,11 @@ const Login = ({ setDisplayLogin }) => {
           {currState === "Login" ? (
             <></>
           ) : (
-            <input type="text" placeholder="Your Name" required />
+            <>
+              <input type="text" placeholder="FirstName" required />
+              <input type="text" placeholder="LastName" required />
+              <input type="number" placeholder="Your Number" required />
+            </>
           )}
           <input type="email" placeholder="Your Email Id" required />
           <input type="password" placeholder="Enter Ur Password" required />
