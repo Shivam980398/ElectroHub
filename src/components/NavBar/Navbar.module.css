@@ -146,7 +146,7 @@ li:hover {
   top: 30px;
   left: 80%;
   padding-left: 0px;
-  right: 0; /* Align to the right */
+  /* right: 0; Align to the right */
   width: 20%;
   background-color: #353634;
   box-shadow: 1px 1px 2px rgb(73, 71, 71), 0 0 25px rgb(54, 108, 194),
