@@ -4,21 +4,35 @@ import { Link } from "react-router-dom";
 import { assets } from "../../assets/frontend_assets/assets";
 import { useContext } from "react";
 import { SearchContext } from "../../context/searchContext";
+import { useSelector } from "react-redux";
+import Navlink from "./Navlink";
+import MenuButton from "./menuButton";
 
 const NavBar = ({ setDisplayLogin, isActive, setActive }) => {
   const navlinks = ["Home", "About Us", "Cart", "Contact Us"];
+  const [menuOpen, setMenuOpen] = useState(false); // State to manage menu toggle
+
   const { searchTerm, handleSearch } = useContext(SearchContext);
   // const [searchTerm, setSearchTerm] = useState("");
   const handleSearchChange = (event) => {
     // setSearchTerm(event.target.value);
     handleSearch(event.target.value); // Pass search term to parent component
   };
+  const cart = useSelector((state) => state.cart);
 
   return (
     <div>
       <div className={styles.navBar}>
         {/* Logo */}
-        <Link className={styles.label} to={"/"}>
+        <Link
+          className={`${styles.label} ${styles.list} ${
+            isActive === "Home" ? styles.active : ""
+          }`}
+          to={"/"}
+          onClick={
+            () => setActive("Home") // Directly update active state to "Home"
+          }
+        >
           ElectroHub
         </Link>
         <div className={styles.search}>
@@ -31,32 +45,22 @@ const NavBar = ({ setDisplayLogin, isActive, setActive }) => {
           <button className={styles.search_icon}>search</button>
         </div>
         {/* Maping links name object as unorder list */}
-        <ul className={styles.navLinks}>
-          {/* Used map so that no need to style each links */}
-          {navlinks.map((navlink, index) => (
-            <li
-              key={navlink}
-              className={`${styles.list} ${
-                isActive === navlink ? styles.active : ""
-              }`}
-              onClick={() => setActive(navlink)}
-            >
-              <Link className={styles.nav} to={getNavLinkPath(navlink)}>
-                {navlink} {/*This display links name like home about us */}
-              </Link>
-            </li>
-          ))}
-          <button
-            type="button"
-            onClick={() => setDisplayLogin(true)}
-            className={styles.search_icon}
-          >
-            SignIn
-          </button>
-        </ul>
-        <div className={styles.menu}>
-          <img id="image" src={assets.menubutton} alt="MENU" />
-        </div>
+        <Navlink
+          className={styles.navLinks}
+          cart={cart}
+          getNavLinkPath={getNavLinkPath}
+          navlinks={navlinks}
+          isActive={isActive}
+          setActive={setActive}
+          setDisplayLogin={setDisplayLogin}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
+        <MenuButton
+          className={styles.menu}
+          menuOpen={menuOpen}
+          setMenuOpen={setMenuOpen}
+        />
       </div>
     </div>
   );

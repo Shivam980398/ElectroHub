@@ -103,6 +103,20 @@ li:hover {
 
   /* box-shadow: 1px 1px 2px black, 0 0 15px blue, 0 0 5px darkblue; */
 }
+.cart_count {
+  position: absolute;
+
+  top: 0.6rem;
+  /* top: 0; */
+  /* right: 0; */
+  /* font-size: 2px; */
+  background-color: rgb(20, 22, 22);
+  color: aqua;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  border-radius: 50%;
+  padding: 0.2rem;
+  font-size: 0.4rem;
+}
 .menu {
   /* display: none; */
   transform: scaleX(0);
@@ -123,19 +137,53 @@ li:hover {
   height: 20px;
   cursor: pointer;
 }
+.menuOpen {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 5px;
+  right: 5px;
+  top: 30px;
+  left: 80%;
+  padding-left: 0px;
+  right: 0; /* Align to the right */
+  width: 20%;
+  background-color: #353634;
+  box-shadow: 1px 1px 2px rgb(73, 71, 71), 0 0 25px rgb(54, 108, 194),
+    0 0 5px rgb(169, 232, 184);
+}
+
+.crossIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-shadow: 1px 1px 2px rgb(73, 71, 71), 0 0 25px rgb(54, 108, 194),
+    0 0 5px rgb(169, 232, 184);
+}
+.crossIcon {
+  color: aqua; /* Set the desired color */
+  font-size: 1.5em; /* Adjust size as needed */
+  background-color: #353634;
+  width: 100%;
+}
+
 @media (max-width: 764px) {
   .navBar {
     width: 90vw;
     margin-right: 10px;
     /* height: fixed; */
   }
+
   .navLinks {
     display: none;
   }
-  .showMenu {
+  .menuOpen {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-end; /* Align links to the right */
   }
+
   .menu {
     /* display: flex; */
     transform: scaleX(1);
@@ -147,19 +195,13 @@ li:hover {
     height: 20px;
     width: 40px;
   }
-  .menu #image {
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-  }
-  /* .menu img {
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-  } */
+
   .search {
     min-width: 40%;
     margin-right: 10%;
+  }
+  .cart_count {
+    top: 2.8rem;
   }
 }
 @media (max-width: 500px) {
@@ -170,10 +212,15 @@ li:hover {
   label {
     margin-top: 0px;
   }
+
   .menu {
     position: absolute;
     top: 15px;
     right: 30px;
+  }
+  .menuOpen {
+    width: 30%;
+    left: 65%;
   }
   .search_input {
     margin-left: 0;

@@ -31,7 +31,7 @@
   margin-right: 5px;
   background-color: #dcd9d947;
   /* background-color: rgba(0, 0, 0, 0.262); */
-  margin: 5px 18px;
+  margin: 10px 18px;
   border: 0.1px solid rgba(154, 151, 151, 0.593);
   border-radius: 20px;
   display: flex;
@@ -79,6 +79,15 @@
     opacity: 1;
   }
 }
+.toastContainerCenter {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   .exploreProducts {
     /* height: 350px; */
@@ -103,14 +112,4 @@
     height: 120px;
     width: 120px;
   }
-}
-
-/* Add this in your CSS file (e.g., Products.module.css) */
-.toastContainerCenter {
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  position: absolute;
-  width: 100%;
-  text-align: center;
 }
