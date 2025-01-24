@@ -7,8 +7,11 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // for parsing application/json
-app.use(cors({ origin: "http://localhost:5173" })); //use cors to allow req from frontend
-
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://electrohubs.netlify.app"],
+  })
+);
 const user = require("./routes/user");
 app.use("/api/v1", user);
 
