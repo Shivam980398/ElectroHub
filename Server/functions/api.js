@@ -12,13 +12,13 @@ app.use(
     origin: ["http://localhost:5173", "https://electrohubs.netlify.app"],
   })
 );
-const user = require("./routes/user");
+const user = require("../routes/user");
 app.use("/api/v1", user);
 
 app.listen(PORT, () => {
   console.log(`Server started at ${PORT}`);
 });
-const dbConnect = require("./config/database");
+const dbConnect = require("../config/database");
 dbConnect();
 
 app.get("/", (req, res) => {

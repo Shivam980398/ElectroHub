@@ -1,4 +1,16 @@
+[build]
+  functions = "functions"
+
+[dev]
+  command = "npm run dev"
+  targetPort = 3000
+
 [[redirects]]
-from="/*"
-to="/index.html"
-status=200
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
