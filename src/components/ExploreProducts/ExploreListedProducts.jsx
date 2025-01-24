@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./ExploreListedProducts.module.css";
 import { menu_item } from "../../assets/frontend_assets/assets";
-import BrandDisplay from "../../BrandDisplay/BrandDisplay";
+import BrandDisplay from "../BrandDisplay/BrandDisplay";
 const ExploreListedItems = ({ category, setCategory }) => {
   // const [items, setItems] = useState("All");
   return (

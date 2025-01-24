@@ -11,6 +11,7 @@ import "./App.css";
 const App = () => {
   const [displayLogin, setDisplayLogin] = useState(false);
   const [isActive, setActive] = useState("Home");
+  const [login, setLogin] = useState(false);
   // const [searchTerm, setSearchTerm] = useState("");
   // const handleSearch = (term) => {
   //   setSearchTerm(term);
@@ -22,8 +23,18 @@ const App = () => {
         setDisplayLogin={setDisplayLogin}
         isActive={isActive}
         setActive={setActive}
+        login={login}
+        setLogin={setLogin}
       />
-      {displayLogin ? <Login setDisplayLogin={setDisplayLogin} /> : <></>}
+      {displayLogin ? (
+        <Login
+          setDisplayLogin={setDisplayLogin}
+          login={login}
+          setLogin={setLogin}
+        />
+      ) : (
+        <></>
+      )}
       <br />
       <br />
       <br />

@@ -1,14 +1,70 @@
 import React, { useState } from "react";
 import style from "./Login.module.css";
 import { assets } from "../../assets/frontend_assets/assets";
-const Login = ({ setDisplayLogin }) => {
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+const Login = ({ setDisplayLogin, setLogin }) => {
   const [currState, setCurrState] = useState("Login");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [number, setNumber] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let response;
+    try {
+      const backendUrl = "http://localhost:4001/api/v1";
+      if (currState === "Login") {
+        response = await axios.post(`${backendUrl}/login`, {
+          email,
+          password,
+        });
+        if (response.status === 200 && response.data) {
+          toast.success("Login Successful");
+          setLogin(true);
+          setDisplayLogin(false);
+        } else {
+          if (error.response && error.response.data) {
+            toast.error(error.response.data.message || `${currState} failed`);
+          } else {
+            toast.error(`${currState} failed due to invalid credentials`);
+          }
+        }
+      } else if (currState === "SignUp") {
+        response = await axios.post(`${backendUrl}/signup`, {
+          email,
+          password,
+          firstName,
+          lastName,
+          number,
+        });
+        if (response.status === 200 && response.data) {
+          toast.success("Account Created Successfully");
+          setLogin(true);
+          setDisplayLogin(false);
+        } else {
+          toast.error("Invalid Credentials");
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      if (error.response && error.response.data) {
+        toast.error(error.response.data.message || `${currState} failed`);
+      } else {
+        toast.error(`${currState} failed due to network error`);
+      }
+    }
+  };
 
   return (
     <div className={style.loginPanel}>
-      <form className={style.loginPanelContainer}>
+      <form className={style.loginPanelContainer} onSubmit={handleSubmit}>
         <div className={style.loginPanelTitle}>
-          <h2> {currState}</h2>
+          <h2>{currState}</h2>
           <img
             onClick={() => setDisplayLogin(false)}
             src={assets.cross_icon}
@@ -20,18 +76,50 @@ const Login = ({ setDisplayLogin }) => {
             <></>
           ) : (
             <>
-              <input type="text" placeholder="FirstName" required />
-              <input type="text" placeholder="LastName" required />
-              <input type="number" placeholder="Your Number" required />
+              <input
+                type="text"
+                placeholder="FirstName"
+                required
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="LastName"
+                required
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <input
+                type="number"
+                placeholder="Your Number"
+                required
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+              />
             </>
           )}
-          <input type="email" placeholder="Your Email Id" required />
-          <input type="password" placeholder="Enter Ur Password" required />
+          <input
+            type="email"
+            placeholder="Your Email Id"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Enter Your Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
-        <button>{currState === "SignUp" ? "Create Account" : "Login"}</button>
+        <button type="submit">
+          {currState === "SignUp" ? "Create Account" : "Login"}
+        </button>
         <div className={style.loginPanelCondition}>
           <input type="checkbox" required />
-          <p>By continuing, i agree to the terms of use and privacy policy.</p>
+          <p>By continuing, I agree to the terms of use and privacy policy.</p>
         </div>
         {currState === "Login" ? (
           <p className={style.whichState}>
@@ -48,4 +136,5 @@ const Login = ({ setDisplayLogin }) => {
     </div>
   );
 };
+
 export default Login;

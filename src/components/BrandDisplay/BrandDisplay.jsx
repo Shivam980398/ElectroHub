@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import style from "./BrandDisplay.module.css";
 import { useContext } from "react";
-import { StoreContext } from "../context/StoreContext";
-import BrandList from "../components/BrandList/BrandList";
+import { StoreContext } from "../../context/StoreContext";
+import BrandList from "../BrandList/BrandList";
 // import Products from "../components/ExploreProducts/Products";
 // import { menu_item } from "../assets/frontend_assets/assets";
 const BrandsDisplay = ({ category, setCategory, searchTerm }) => {

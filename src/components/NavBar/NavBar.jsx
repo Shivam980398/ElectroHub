@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import Navlink from "./Navlink";
 import MenuButton from "./menuButton";
 
-const NavBar = ({ setDisplayLogin, isActive, setActive }) => {
+const NavBar = ({ setDisplayLogin, isActive, setActive, login, setLogin }) => {
   const navlinks = ["Home", "About Us", "Cart", "Contact Us"];
   const [menuOpen, setMenuOpen] = useState(false); // State to manage menu toggle
 
@@ -55,6 +55,8 @@ const NavBar = ({ setDisplayLogin, isActive, setActive }) => {
           setDisplayLogin={setDisplayLogin}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
+          login={login}
+          setLogin={setLogin}
         />
         <MenuButton
           className={styles.menu}

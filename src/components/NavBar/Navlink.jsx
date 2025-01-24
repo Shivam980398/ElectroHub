@@ -18,7 +18,16 @@ const Navlink = ({
   setActive,
   setDisplayLogin,
   menuOpen,
+  login,
+  setLogin,
 }) => {
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      setLogin(false);
+      setDisplayLogin(false);
+    }
+  };
   return (
     <ul className={`${styles.navLinks} ${menuOpen ? styles.menuOpen : ""}`}>
       {/* Used map so that no need to style each links */}
@@ -45,10 +54,10 @@ const Navlink = ({
       ))}
       <button
         type="button"
-        onClick={() => setDisplayLogin(true)}
+        onClick={login ? handleLogout : () => setDisplayLogin(true)}
         className={styles.search_icon}
       >
-        SignIn
+        {login ? "Logout" : "SignIn"}
       </button>
     </ul>
   );
