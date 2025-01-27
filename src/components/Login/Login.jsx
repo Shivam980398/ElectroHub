@@ -4,6 +4,7 @@ import { assets } from "../../assets/frontend_assets/assets";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Login = ({ setDisplayLogin, setLogin }) => {
   const [currState, setCurrState] = useState("Login");
@@ -24,6 +25,7 @@ const Login = ({ setDisplayLogin, setLogin }) => {
           password,
         });
         if (response.status === 200 && response.data) {
+          Cookies.set("token", response.data.token, { expires: 1 });
           toast.success("Login Successful");
           setLogin(true);
           setDisplayLogin(false);
@@ -43,6 +45,8 @@ const Login = ({ setDisplayLogin, setLogin }) => {
           number,
         });
         if (response.status === 200 && response.data) {
+          Cookies.set("token", response.data.token, { expires: 1 });
+
           toast.success("Account Created Successfully");
           setLogin(true);
           setDisplayLogin(false);
