@@ -10,15 +10,23 @@ app.use(express.json()); // for parsing application/json
 app.use(
   cors({
     origin: ["http://localhost:5173", "https://electrohubs.netlify.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
   })
 );
-const user = require("../routes/user");
+
+// Handling preflight requests
+app.options("*", cors());
+
+const user = require("./routes/user");
 app.use("/api/v1", user);
 
 app.listen(PORT, () => {
   console.log(`Server started at ${PORT}`);
 });
-const dbConnect = require("../config/database");
+
+const dbConnect = require("./config/database");
 dbConnect();
 
 app.get("/", (req, res) => {

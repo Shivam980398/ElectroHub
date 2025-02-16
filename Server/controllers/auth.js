@@ -1,8 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-
+const sendmail = require("../Utils/nodemailer");
 require("dotenv").config();
+const crypto = require("crypto");
 
 // sign Up  route handler
 exports.signup = async (req, res) => {
@@ -38,6 +39,7 @@ exports.signup = async (req, res) => {
       password: hashedPassword,
       number,
     });
+    sendmail("signup", user);
     return res.status(200).json({
       success: true,
       message: "User created successfully",
@@ -107,6 +109,102 @@ exports.login = async (req, res) => {
     return res.status(500).json({
       success: false,
       message: "Login failed",
+    });
+  }
+};
+
+// forget password
+
+exports.forgetPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // Check if user exists
+    let user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User does not exist",
+      });
+    }
+
+    // Generate token and save user
+    const resetToken = user.getResetPasswordToken();
+    await user.save();
+
+    // Construct reset URL
+    const resetUrl = ` http://localhost:5173/resetpassword/${resetToken}`;
+
+    // Prepare email data
+    const resetInfo = {
+      email: user.email,
+      resetUrl,
+    };
+
+    // Send email
+    sendmail("forgetPassword", resetInfo);
+
+    return res.status(200).json({
+      success: true,
+      message: "Password reset link sent",
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Password reset failed",
+    });
+  }
+};
+
+//resetToken
+// const crypto = require("crypto");
+
+exports.resetPassword = async (req, res) => {
+  try {
+    const { password, confirmPassword } = req.body;
+    const { resetToken } = req.params;
+
+    // Hash the token and check if user exists
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex");
+    let user = await User.findOne({
+      resetPasswordToken: hashedToken,
+      resetPasswordExpire: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid Token",
+      });
+    }
+
+    if (password !== confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "Passwords do not match",
+      });
+    }
+
+    // Secure password
+    const hashedPassword = await bcrypt.hash(password, 10);
+    user.password = hashedPassword;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Password reset successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: "Password reset failed",
     });
   }
 };
