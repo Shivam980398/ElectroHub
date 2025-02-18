@@ -9,27 +9,31 @@ import { store } from "./components/redux/store.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SearchContextProvider from "./context/searchContext.jsx";
+import UserDetailProvider from "./context/userContext.jsx";
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
-      <StoreContextProvider>
-        <StoreItemProvider>
-          <SearchContextProvider>
-            <App />
-            <ToastContainer
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-          </SearchContextProvider>
-        </StoreItemProvider>
-      </StoreContextProvider>
+      <UserDetailProvider>
+        <StoreContextProvider>
+          <StoreItemProvider>
+            <SearchContextProvider>
+              <App />
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+              />
+            </SearchContextProvider>
+          </StoreItemProvider>
+        </StoreContextProvider>
+      </UserDetailProvider>
     </BrowserRouter>
   </Provider>
 );

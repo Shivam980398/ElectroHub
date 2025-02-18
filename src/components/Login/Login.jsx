@@ -1,24 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./Login.module.css";
 import { assets } from "../../assets/frontend_assets/assets";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { userDetail } from "../../context/userContext";
 
 const Login = ({ setDisplayLogin, setLogin }) => {
   const [currState, setCurrState] = useState("Login");
-  const [email, setEmail] = useState("");
+  const {
+    email,
+    setEmail,
+
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    number,
+    setNumber,
+  } = useContext(userDetail);
+
   const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [number, setNumber] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let response;
     try {
-      const backendUrl = "http://localhost:4001/api/v1";
+      const backendUrl = "https://electrohub-aat2.onrender.com/api/v1";
       if (currState === "Login") {
         response = await axios.post(`${backendUrl}/login`, {
           email,
@@ -53,6 +62,11 @@ const Login = ({ setDisplayLogin, setLogin }) => {
         } else {
           toast.error("Invalid Credentials");
         }
+      } else if (currState === "forgetPassword") {
+        response = await axios.post(`${backendUrl}/forgetPassword`, {
+          email,
+        });
+        alert("Password reset link sent to your email");
       }
     } catch (error) {
       console.error(error);
@@ -76,9 +90,18 @@ const Login = ({ setDisplayLogin, setLogin }) => {
           />
         </div>
         <div className={style.loginPanelInputs}>
-          {currState === "Login" ? (
-            <></>
-          ) : (
+          {currState === "forgetPassword" ? (
+            <>
+              {" "}
+              <input
+                type="email"
+                placeholder="Your Email Id"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </>
+          ) : currState === "SignUp" ? (
             <>
               <input
                 type="text"
@@ -101,40 +124,80 @@ const Login = ({ setDisplayLogin, setLogin }) => {
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
               />
+              <input
+                type="email"
+                placeholder="Your Email Id"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Enter Your Password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </>
+          ) : (
+            <>
+              <input
+                type="email"
+                placeholder="Your Email Id"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Enter Your Password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </>
           )}
-          <input
-            type="email"
-            placeholder="Your Email Id"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Enter Your Password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
         </div>
         <button type="submit">
-          {currState === "SignUp" ? "Create Account" : "Login"}
+          {currState === "SignUp"
+            ? "Create Account"
+            : currState === "Login"
+            ? "Login"
+            : "resetpass"}
         </button>
-        <div className={style.loginPanelCondition}>
-          <input type="checkbox" required />
-          <p>By continuing, I agree to the terms of use and privacy policy.</p>
-        </div>
-        {currState === "Login" ? (
-          <p className={style.whichState}>
-            Create a new account{" "}
-            <span onClick={() => setCurrState("SignUp")}>Click here</span>
-          </p>
+
+        {currState === "forgetPassword" ? (
+          <>
+            <span onClick={() => setCurrState("Login")}>Back</span>
+          </>
         ) : (
-          <p>
-            Already have an account?{" "}
-            <span onClick={() => setCurrState("Login")}>Login here</span>
-          </p>
+          <>
+            <div>
+              <span
+                className={style.fp}
+                onClick={() => setCurrState("forgetPassword")}
+              >
+                Forget Password
+              </span>
+            </div>
+            <div className={style.loginPanelCondition}>
+              <input type="checkbox" required />
+              <p>
+                By continuing, I agree to the terms of use and privacy policy.
+              </p>
+            </div>
+            {currState === "Login" ? (
+              <p className={style.whichState}>
+                Create a new account{" "}
+                <span onClick={() => setCurrState("SignUp")}>Click here</span>
+              </p>
+            ) : (
+              <p>
+                Already have an account?{" "}
+                <span onClick={() => setCurrState("Login")}>Login here</span>
+              </p>
+            )}
+          </>
         )}
       </form>
     </div>

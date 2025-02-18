@@ -133,7 +133,7 @@ exports.forgetPassword = async (req, res) => {
     await user.save();
 
     // Construct reset URL
-    const resetUrl = ` http://localhost:5173/resetpassword/${resetToken}`;
+    const resetUrl = ` http://localhost:5174/resetpassword/${resetToken} || https://electrohubs.netlify.app/resetpassword/${resetToken}`;
 
     // Prepare email data
     const resetInfo = {

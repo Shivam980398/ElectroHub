@@ -4,8 +4,10 @@ import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import AboutUs from "./pages/AboutUS/AboutUs";
 import Login from "./components/Login/Login.jsx";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import "./App.css";
+import ResetPass from "./components/ForgetPassword/resetPass.jsx";
+import { use } from "react";
 // import ProductDetails from "./components/ExploreProducts/ProductDetails.jsx";
 
 const App = () => {
@@ -16,7 +18,7 @@ const App = () => {
   // const handleSearch = (term) => {
   //   setSearchTerm(term);
   // };
-
+  const token = useParams().token;
   return (
     <>
       <NavBar
@@ -48,7 +50,7 @@ const App = () => {
           element={<Cart isActive={isActive} setActive={setActive} />}
         />
         <Route path="/About" element={<AboutUs />} />
-        {/* <Route path="/product/:productId" element={<ProductDetails />} /> */}
+        <Route path={`/resetpassword/:token`} element={<ResetPass />} />
       </Routes>
       <br />
       <br />

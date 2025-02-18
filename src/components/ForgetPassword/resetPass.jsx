@@ -1,0 +1,64 @@
+import React, { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { userDetail } from "../../context/userContext";
+
+const ResetPass = () => {
+  const { password, setPassword } = useContext(userDetail);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { token } = useParams(); // Get the token from the URL
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("Password:", password);
+    console.log("Confirm Password:", confirmPassword);
+    try {
+      const backendUrl = "https://electrohub-aat2.onrender.com/api/v1";
+      const response = await axios.post(
+        `${backendUrl}/resetpassword/${token}`,
+        {
+          password,
+          confirmPassword,
+        }
+      );
+      if (response.status === 200 && response.data) {
+        toast.success("Password Changed Successfully");
+      } else {
+        toast.error(response.data.message || "Changing password failed");
+      }
+    } catch (error) {
+      toast.error(
+        error.response.data.message ||
+          "Changing password failed due to network error"
+      );
+    }
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", width: "50%" }}>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="">Password</label>
+        <input
+          type="password"
+          placeholder="Enter Your Password"
+          required
+          value={password}
+          //   onChange={(e) => setPassword(e.target.value)}
+        />
+        <br />
+        <label htmlFor="">Confirm Password</label>
+        <input
+          type="password"
+          placeholder="Confirm Your Password"
+          required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <button type="submit">Change Pass</button>
+      </form>
+    </div>
+  );
+};
+
+export default ResetPass;
