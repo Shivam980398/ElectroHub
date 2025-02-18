@@ -8,6 +8,8 @@ const UserDetailProvider = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [number, setNumber] = useState("");
+  const [currState, setCurrState] = useState("Login");
+  const [displayLogin, setDisplayLogin] = useState(false);
 
   const contextValue = {
     email,
@@ -20,6 +22,10 @@ const UserDetailProvider = (props) => {
     setLastName,
     number,
     setNumber,
+    currState,
+    setCurrState,
+    displayLogin,
+    setDisplayLogin,
   };
 
   return (

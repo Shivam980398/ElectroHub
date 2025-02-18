@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SearchContextProvider from "./context/searchContext.jsx";
 import UserDetailProvider from "./context/userContext.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <StoreContextProvider>
           <StoreItemProvider>
             <SearchContextProvider>
-              <App />
+              <AuthProvider>
+                <App />
+              </AuthProvider>
               <ToastContainer
                 position="top-center"
                 autoClose={5000}

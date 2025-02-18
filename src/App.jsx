@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
@@ -8,31 +8,33 @@ import { Routes, Route, useParams } from "react-router-dom";
 import "./App.css";
 import ResetPass from "./components/ForgetPassword/resetPass.jsx";
 import { use } from "react";
+import { userDetail } from "./context/userContext.jsx";
 // import ProductDetails from "./components/ExploreProducts/ProductDetails.jsx";
 
 const App = () => {
-  const [displayLogin, setDisplayLogin] = useState(false);
+  // const [displayLogin, setDisplayLogin] = useState(false);
   const [isActive, setActive] = useState("Home");
-  const [login, setLogin] = useState(false);
+  // const [login, setLogin] = useState(false);
   // const [searchTerm, setSearchTerm] = useState("");
   // const handleSearch = (term) => {
   //   setSearchTerm(term);
   // };
+  const { displayLogin, setDisplayLogin } = useContext(userDetail);
   const token = useParams().token;
   return (
     <>
       <NavBar
-        setDisplayLogin={setDisplayLogin}
+        // setDisplayLogin={setDisplayLogin}
         isActive={isActive}
         setActive={setActive}
-        login={login}
-        setLogin={setLogin}
+        // login={login}
+        // setLogin={setLogin}
       />
       {displayLogin ? (
         <Login
           setDisplayLogin={setDisplayLogin}
-          login={login}
-          setLogin={setLogin}
+          // login={login}
+          // setLogin={setLogin}
         />
       ) : (
         <></>

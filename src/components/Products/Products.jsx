@@ -4,20 +4,29 @@ import { menu_products } from "../../assets/frontend_assets/assets";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { add, remove } from "../redux/slices/CartSlice";
+import { add, remove, clear } from "../redux/slices/CartSlice";
 import ProductItem from "./ProductItem";
 import { useContext } from "react";
 import { SearchContext } from "../../context/searchContext";
+import { useAuth } from "../../context/AuthContext";
+// import store from "../redux/store";
 
 const Products = ({ type = "All", category = "All" }) => {
   const { searchTerm } = useContext(SearchContext);
 
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const { isAuthenticated } = useAuth();
 
   // Function for adding item to cart
   const addToCart = (item) => {
     // console.log("Adding item to cart", item._id);
+    if (!isAuthenticated) {
+      toast.error("Please log in to add items to your cart.", {
+        position: "top-center",
+      });
+      return;
+    }
     dispatch(add(item));
     toast.success(`${item.description} Added to cart`, {
       position: "top-center",
@@ -57,7 +66,7 @@ const Products = ({ type = "All", category = "All" }) => {
     <div>
       <ProductItem
         filteredProducts={filteredProducts}
-        cart={cart}
+        cart={isAuthenticated ? cart : []}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
       />

@@ -17,6 +17,7 @@ app.use(
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     optionsSuccessStatus: 204,
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
 );
 

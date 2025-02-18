@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import { useContext } from "react";
+import { FaUserCircle } from "react-icons/fa";
+
+import { userDetail } from "../../context/userContext";
+import { useAuth } from "../../context/AuthContext";
 // import { navlinks } from "./NavBar";
 // import { getNavLinkPath } from "./NavBar";
 // import { menuOpen, setMenuOpen } from "./NavBar";
@@ -16,15 +21,17 @@ const Navlink = ({
   getNavLinkPath,
   isActive,
   setActive,
-  setDisplayLogin,
+
   menuOpen,
-  login,
-  setLogin,
+  // login,
+  // setLogin,
 }) => {
+  const { setDisplayLogin } = useContext(userDetail);
+  const { isAuthenticated, logout } = useAuth();
   const handleLogout = () => {
     const confirmLogout = window.confirm("Are you sure you want to logout?");
     if (confirmLogout) {
-      setLogin(false);
+      logout();
       setDisplayLogin(false);
     }
   };
@@ -52,12 +59,33 @@ const Navlink = ({
           </Link>
         </li>
       ))}
+      <div>
+        {isAuthenticated ? (
+          <FaUserCircle
+            className="text-6xl text-gray-600 mb-2"
+            style={{
+              position: "absolute",
+              top: "-15px",
+              right: "52px",
+              height: "20px",
+              width: "20px",
+              cursor: "pointer",
+            }}
+          />
+        ) : null}
+      </div>
       <button
         type="button"
-        onClick={login ? handleLogout : () => setDisplayLogin(true)}
-        className={styles.search_icon}
+        onClick={isAuthenticated ? handleLogout : () => setDisplayLogin(true)}
+        className={`${styles.search_icon}`}
+        style={{
+          position: "absolute",
+          top: "15px",
+          right: "40px",
+          cursor: "pointer",
+        }}
       >
-        {login ? "Logout" : "SignIn"}
+        {isAuthenticated ? "Logout" : "SignIn"}
       </button>
     </ul>
   );

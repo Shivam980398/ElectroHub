@@ -7,12 +7,14 @@ import { SearchContext } from "../../context/searchContext";
 import { useSelector } from "react-redux";
 import Navlink from "./Navlink";
 import MenuButton from "./menuButton";
+import { userDetail } from "../../context/userContext";
 
-const NavBar = ({ setDisplayLogin, isActive, setActive, login, setLogin }) => {
+const NavBar = ({ isActive, setActive }) => {
   const navlinks = ["Home", "About Us", "Cart", "Contact Us"];
   const [menuOpen, setMenuOpen] = useState(false); // State to manage menu toggle
 
   const { searchTerm, handleSearch } = useContext(SearchContext);
+  // const { setDisplayLogin } = useContext(userDetail);
   // const [searchTerm, setSearchTerm] = useState("");
   const handleSearchChange = (event) => {
     // setSearchTerm(event.target.value);
@@ -52,11 +54,11 @@ const NavBar = ({ setDisplayLogin, isActive, setActive, login, setLogin }) => {
           navlinks={navlinks}
           isActive={isActive}
           setActive={setActive}
-          setDisplayLogin={setDisplayLogin}
+          // setDisplayLogin={setDisplayLogin}
           menuOpen={menuOpen}
           setMenuOpen={setMenuOpen}
-          login={login}
-          setLogin={setLogin}
+          // login={login}
+          // setLogin={setLogin}
         />
         <MenuButton
           className={styles.menu}
