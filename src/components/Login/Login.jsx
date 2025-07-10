@@ -6,9 +6,10 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { userDetail } from "../../context/userContext";
+import { useAuth } from "../../context/AuthContext";
 
-const Login = ({ setDisplayLogin, setLogin }) => {
-  const [currState, setCurrState] = useState("Login");
+const Login = ({}) => {
+  // const [currState, setCurrState] = useState("Login");
   const {
     email,
     setEmail,
@@ -19,7 +20,11 @@ const Login = ({ setDisplayLogin, setLogin }) => {
     setLastName,
     number,
     setNumber,
+    currState,
+    setCurrState,
+    setDisplayLogin,
   } = useContext(userDetail);
+  const { login } = useAuth();
 
   const [password, setPassword] = useState("");
 
@@ -27,7 +32,9 @@ const Login = ({ setDisplayLogin, setLogin }) => {
     e.preventDefault();
     let response;
     try {
+      // const backendUrl = "http://localhost:4001/api/v1";
       const backendUrl = "https://electrohub-aat2.onrender.com/api/v1";
+
       if (currState === "Login") {
         response = await axios.post(`${backendUrl}/login`, {
           email,
@@ -35,8 +42,12 @@ const Login = ({ setDisplayLogin, setLogin }) => {
         });
         if (response.status === 200 && response.data) {
           Cookies.set("token", response.data.token, { expires: 1 });
+          const userName = response.data.user.firstName || "User";
+          localStorage.setItem("userName", userName);
+
           toast.success("Login Successful");
-          setLogin(true);
+          login();
+          // setLogin(true);
           setDisplayLogin(false);
         } else {
           if (error.response && error.response.data) {
@@ -57,7 +68,8 @@ const Login = ({ setDisplayLogin, setLogin }) => {
           Cookies.set("token", response.data.token, { expires: 1 });
 
           toast.success("Account Created Successfully");
-          setLogin(true);
+          login();
+          // setLogin(true);
           setDisplayLogin(false);
         } else {
           toast.error("Invalid Credentials");
@@ -66,7 +78,17 @@ const Login = ({ setDisplayLogin, setLogin }) => {
         response = await axios.post(`${backendUrl}/forgetPassword`, {
           email,
         });
-        alert("Password reset link sent to your email");
+        if (response.status === 200 && response.data) {
+          toast.success("Reset Password Link Sent to your Email");
+          setCurrState("login");
+        } else {
+          if (error.response && error.response.data) {
+            toast.error(error.response.data.message || `Reset failed`);
+          } else {
+            toast.error(`Reset failed due to invalid credentials`);
+          }
+        }
+        // alert("Password reset link sent to your email");
       }
     } catch (error) {
       console.error(error);
