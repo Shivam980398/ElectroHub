@@ -9,11 +9,7 @@ const PORT = process.env.PORT || 5000;
 app.use(express.json()); // for parsing application/json
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "http://localhost:5174",
-      "https://electrohubs.netlify.app",
-    ],
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     optionsSuccessStatus: 204,
