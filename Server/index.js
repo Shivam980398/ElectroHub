@@ -7,15 +7,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // for parsing application/json
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 204,
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-  })
-);
+
 
 // Handling preflight requests
 app.use(cors({
