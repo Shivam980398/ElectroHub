@@ -18,7 +18,11 @@ app.use(
 );
 
 // Handling preflight requests
-app.options("*", cors());
+app.use(cors({
+  origin: 'https://electrohubs.netlify.app', // Specify the exact frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify headers the client sends
+}));
 
 const user = require("./routes/user");
 app.use("/api/v1", user);
