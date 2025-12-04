@@ -28,12 +28,11 @@ const ResetPass = () => {
       );
       if (response.status === 200 && response.data) {
         toast.success("Password Changed Successfully");
-        setCurrState("Login"); // Reset the state to Login after successful password change
-        // navigate("/"); // Redirect to the home page or any other page
+        setCurrState("Login");
         setTimeout(() => {
-          navigate("/"); // ✅ Navigate after state update
+          navigate("/");
         }, 100);
-        setDisplayLogin(true); // Close the login modal if it was open
+        setDisplayLogin(true);
       } else {
         toast.error(response.data.message || "Changing password failed");
       }

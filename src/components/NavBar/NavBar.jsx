@@ -31,9 +31,7 @@ const NavBar = ({ isActive, setActive }) => {
             isActive === "Home" ? styles.active : ""
           }`}
           to={"/"}
-          onClick={
-            () => setActive("Home") // Directly update active state to "Home"
-          }
+          onClick={() => setActive("Home")}
         >
           ElectroHub
         </Link>
