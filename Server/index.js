@@ -7,15 +7,18 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json()); // for parsing application/json
-
-// Handling preflight requests
 app.use(
   cors({
-    origin: "https://electrohubs.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
 );
+
+// Handling preflight requests
+app.options("*", cors());
 
 const user = require("./routes/user");
 app.use("/api/v1", user);
