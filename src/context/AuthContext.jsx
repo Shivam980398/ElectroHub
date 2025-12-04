@@ -7,7 +7,7 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch(); // ✅ ensure this is present
+  const dispatch = useDispatch();
   const [isAuthenticated, setAuthenticated] = useState(
     () => JSON.parse(localStorage.getItem("isAuthenticated")) || false
   );
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     console.log("Logout clicked, clearing cart...");
     setAuthenticated(false);
     localStorage.removeItem("isAuthenticated");
-    dispatch(clear()); // ✅ clears Redux cart
+    dispatch(clear()); //
     // localStorage.removeItem("cart"); // optional; Redux store.subscribe will overwrite to []
     // navigate("/"); // optional navigation
   };

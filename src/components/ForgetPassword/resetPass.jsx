@@ -16,7 +16,9 @@ const ResetPass = () => {
     console.log("Password:", password);
     console.log("Confirm Password:", confirmPassword);
     try {
-      const backendUrl = "http://localhost:4001/api/v1";
+      // const backendUrl = "http://localhost:4001/api/v1";
+      const backendUrl = "https://electrohub-aat2.onrender.com/api/v1";
+
       const response = await axios.post(
         `${backendUrl}/resetpassword/${token}`,
         {

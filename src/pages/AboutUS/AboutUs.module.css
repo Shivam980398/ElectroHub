@@ -1,3 +1,67 @@
 .aboutUs {
-  padding: 25px;
+  max-width: 90%;
+  margin: 40px auto;
+  padding: 20px 30px;
+  background: #ffffffe4;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.7;
+}
+
+.aboutUs h1 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+  font-weight: 600;
+}
+
+.aboutUs h2 {
+  font-size: 22px;
+  margin: 25px 0 10px;
+  color: #333;
+  border-left: 4px solid #007bff;
+  padding-left: 10px;
+  font-weight: 500;
+}
+
+.aboutUs p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.aboutUs ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.aboutUs ul li {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.aboutUs b {
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .aboutUs {
+    padding: 15px 20px;
+  }
+
+  .aboutUs h1 {
+    font-size: 26px;
+  }
+
+  .aboutUs h2 {
+    font-size: 20px;
+  }
+
+  .aboutUs p,
+  .aboutUs ul li {
+    font-size: 15px;
+  }
 }

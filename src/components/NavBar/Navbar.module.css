@@ -84,6 +84,14 @@ body {
   list-style-type: none;
   text-decoration: none;
 }
+
+.loginBtn {
+  position: absolute;
+  /* top: -10px; */
+  right: 10px;
+  cursor: pointer;
+}
+
 li:hover {
   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
@@ -103,16 +111,19 @@ li:hover {
 
   /* box-shadow: 1px 1px 2px black, 0 0 15px blue, 0 0 5px darkblue; */
 }
+
 .cart_count {
   position: absolute;
+  font-size: 0.8rem;
+  font-weight: 600;
 
-  top: 0.6rem;
+  top: 0.2rem;
   /* top: 0; */
   /* right: 0; */
   /* font-size: 2px; */
-  background-color: rgb(20, 22, 22);
-  color: aqua;
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  background-color: rgb(68, 134, 214);
+  color: rgb(251, 253, 253);
+  /* text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; */
   border-radius: 50%;
   padding: 0.2rem;
   font-size: 0.4rem;
@@ -126,6 +137,7 @@ li:hover {
   right: 0;
   height: 20px;
   width: 40px;
+  transition: transform 0.3s ease-in-out;
 }
 .menu .image {
   width: 40px;
@@ -181,9 +193,21 @@ li:hover {
   .menuOpen {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Align links to the right */
+    align-items: center;
+    align-content: center;
+    gap: 15px;
+    height: 40vh;
+    transition: transform 0.5s ease-in;
+    padding-right: 20px;
   }
 
+  .loginBtn {
+    /* position: absolute; */
+
+    bottom: 40px !important;
+    right: 40px;
+    cursor: pointer;
+  }
   .menu {
     /* display: flex; */
     transform: scaleX(1);
@@ -201,7 +225,7 @@ li:hover {
     margin-right: 10%;
   }
   .cart_count {
-    top: 2.8rem;
+    top: 5rem;
   }
 }
 @media (max-width: 500px) {
@@ -219,8 +243,9 @@ li:hover {
     right: 30px;
   }
   .menuOpen {
-    width: 35%;
+    width: 45%;
     left: 65%;
+    height: 50vh;
   }
   .search_input {
     margin-left: 0;

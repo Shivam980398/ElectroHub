@@ -77,6 +77,8 @@ function getNavLinkPath(navlink) {
       return "/";
     case "About Us":
       return "/About";
+    case "Contact Us":
+      return "/ContactUs";
     default:
       return `/${navlink.toLowerCase()}`;
   }

@@ -139,13 +139,12 @@ export const menu_list = [
     category: "AC",
   },
 ];
-
 export const menu_products = [
   {
     _id: "1",
     name: "Samsung S23",
     image: smarttv,
-    price: 12,
+    price: 54999,
     description:
       "Samsung S23: Cutting-edge smart TV with immersive picture quality, 4K resolution, and voice control.",
     type: "Samsung",
@@ -155,7 +154,7 @@ export const menu_products = [
     _id: "2",
     name: "Vivo Book",
     image: laptop,
-    price: "99$",
+    price: 59999,
     description:
       "Vivo Book: High-performance laptop with sleek design, 16GB RAM, 1TB SSD, and dedicated graphics.",
     type: "Vivo",
@@ -165,7 +164,7 @@ export const menu_products = [
     _id: "3",
     name: "Oppo",
     image: smartphone,
-    price: "$16",
+    price: 16999,
     description:
       "Oppo: Stylish smartphone with 50MP triple camera, 8GB RAM, 128GB storage, and fast charging.",
     type: "Oppo",
@@ -175,7 +174,7 @@ export const menu_products = [
     _id: "4",
     name: "Smart Watch",
     image: smartwatch,
-    price: 24,
+    price: 2999,
     description:
       "Smart Watch: Sleek and functional watch with fitness tracking, heart rate monitoring, and smartphone notifications.",
     type: "Oneplus",
@@ -185,7 +184,7 @@ export const menu_products = [
     _id: "5",
     name: "Samsung",
     image: samsung,
-    price: 14,
+    price: 13999,
     description:
       "Samsung: Versatile mobile phone with a powerful processor, 6.7-inch AMOLED display, and 5G connectivity.",
     type: "Samsung",
@@ -195,7 +194,7 @@ export const menu_products = [
     _id: "6",
     name: "Speaker",
     image: speakers,
-    price: 12,
+    price: 2499,
     description:
       "Speaker: High-quality audio with deep bass, crystal-clear sound, and Bluetooth connectivity.",
     type: "Dell",
@@ -205,7 +204,7 @@ export const menu_products = [
     _id: "7",
     name: "Samsung",
     image: samsung,
-    price: 20,
+    price: 18999,
     description:
       "Samsung: Reliable and innovative mobile with 128GB storage, 8GB RAM, and a long-lasting battery.",
     type: "Samsung",
@@ -215,7 +214,7 @@ export const menu_products = [
     _id: "8",
     name: "Vivo",
     image: smartphone,
-    price: 15,
+    price: 15999,
     description:
       "Vivo: Experience seamless performance and stunning visuals with 5G support and a high-refresh-rate display.",
     type: "Vivo",
@@ -225,7 +224,7 @@ export const menu_products = [
     _id: "9",
     name: "Fridge",
     image: fridge,
-    price: 14,
+    price: 23999,
     description:
       "Fridge: Spacious and energy-efficient refrigerator with a large capacity and multiple compartments.",
     type: "LG",
@@ -235,7 +234,7 @@ export const menu_products = [
     _id: "10",
     name: "Asus Rog Strix",
     image: Asus,
-    price: 22,
+    price: 89999,
     description:
       "Asus Rog Strix: Gaming laptop with high-end performance, 16GB RAM, RTX 3060 graphics, and 1TB SSD.",
     type: "Asus",
@@ -245,7 +244,7 @@ export const menu_products = [
     _id: "11",
     name: "Asus Tuff",
     image: laptop,
-    price: 10,
+    price: 55999,
     description:
       "Asus Tuff: Durable laptop with 8GB RAM, 512GB SSD, and military-grade durability for everyday use.",
     type: "Asus",
@@ -255,7 +254,7 @@ export const menu_products = [
     _id: "12",
     name: "Hp Victus",
     image: laptop,
-    price: 12,
+    price: 74999,
     description:
       "Hp Victus: Robust laptop with 16GB RAM, 512GB SSD, and dedicated graphics for smooth gaming and multitasking.",
     type: "HP",
@@ -265,7 +264,7 @@ export const menu_products = [
     _id: "13",
     name: "Hp Pavillion",
     image: laptop,
-    price: 12,
+    price: 49999,
     description:
       "Hp Pavillion: Stylish laptop with 8GB RAM, 256GB SSD, and a vibrant display for everyday use.",
     type: "HP",
@@ -275,7 +274,7 @@ export const menu_products = [
     _id: "14",
     name: "MacBook Air",
     image: applelaptop,
-    price: 18,
+    price: 99999,
     description:
       "MacBook Air: Ultra-light laptop with M2 chip, 8GB RAM, 256GB SSD, and exceptional battery life.",
     type: "Apple",
@@ -285,9 +284,9 @@ export const menu_products = [
     _id: "15",
     name: "MacBook Air 5",
     image: applelaptop,
-    price: 16,
+    price: 114999,
     description:
-      "MacBook Air 5: The perfect blend of portability and powerful performance with M2 chip and 16GB RAM.",
+      "MacBook Air 5: Powerful performance with M2 chip and 16GB RAM.",
     type: "Apple",
     category: "Laptops",
   },
@@ -295,9 +294,9 @@ export const menu_products = [
     _id: "16",
     name: "Samsung Smart Tv",
     image: smarttv,
-    price: 24,
+    price: 34999,
     description:
-      "Samsung Smart TV: Experience stunning visuals with 4K resolution, HDR support, and a wide range of smart features.",
+      "Samsung Smart TV: Stunning visuals with 4K resolution, HDR support, and smart features.",
     type: "Samsung",
     category: "Smart Tv",
   },
@@ -305,9 +304,9 @@ export const menu_products = [
     _id: "17",
     name: "Ac 1.5 Ton",
     image: AC,
-    price: 14,
+    price: 36999,
     description:
-      "AC 1.5 Ton: Efficient cooling for large rooms with advanced air purification and inverter technology.",
+      "AC 1.5 Ton: Efficient cooling with inverter technology and air purification.",
     type: "Samsung",
     category: "AC",
   },
@@ -315,9 +314,9 @@ export const menu_products = [
     _id: "18",
     name: "AC 1 Ton",
     image: AC,
-    price: 12,
+    price: 29999,
     description:
-      "AC 1 Ton: Compact and efficient cooling solution for small spaces with energy-saving features.",
+      "AC 1 Ton: Compact cooling solution with energy-saving features.",
     type: "Samsung",
     category: "AC",
   },
@@ -325,19 +324,18 @@ export const menu_products = [
     _id: "19",
     name: "Samsung Ac",
     image: AC,
-    price: 20,
+    price: 40999,
     description:
-      "Samsung AC: Powerful air conditioning with energy-saving features and Wi-Fi connectivity.",
+      "Samsung AC: High-performance cooling with Wi-Fi connectivity.",
     type: "Samsung",
     category: "AC",
   },
   {
     _id: "20",
-    name: "Fridge ",
+    name: "Fridge",
     image: fridge,
-    price: 15,
-    description:
-      "Fridge: Keep your food fresh with advanced cooling technology and a spacious interior.",
+    price: 27999,
+    description: "Fridge: Spacious interior with advanced cooling technology.",
     type: "Samsung",
     category: "Fridge",
   },
@@ -345,9 +343,8 @@ export const menu_products = [
     _id: "21",
     name: "Smart Watch",
     image: smartwatch,
-    price: 14,
-    description:
-      "Smart Watch: Track your fitness, monitor your heart rate, and stay connected with smartphone notifications.",
+    price: 3499,
+    description: "Smart Watch: Track fitness, heart rate, and notifications.",
     type: "Samsung",
     category: "Watch",
   },
@@ -355,9 +352,9 @@ export const menu_products = [
     _id: "22",
     name: "Redmi note 8 Smart Watch",
     image: smartwatch,
-    price: 22,
+    price: 2499,
     description:
-      "Redmi Note 8 Smart Watch: Stylish design with comprehensive health tracking, including sleep monitoring and stress detection.",
+      "Redmi Smart Watch: Health tracking, sleep monitoring, and stylish design.",
     type: "Redmi",
     category: "Watch",
   },
@@ -365,19 +362,17 @@ export const menu_products = [
     _id: "23",
     name: "Redmi note 12",
     image: smartphone,
-    price: 10,
-    description:
-      "Redmi Note 12: A budget-friendly smartphone with 50MP main camera, 6GB RAM, and 128GB storage.",
+    price: 12999,
+    description: "Redmi Note 12: 50MP camera, 6GB RAM, 128GB storage.",
     type: "Redmi",
     category: "SmartPhone",
   },
   {
     _id: "24",
-    name: "Redmi ",
+    name: "Redmi",
     image: smartphone,
-    price: 12,
-    description:
-      "Redmi: Reliable smartphone with excellent performance, 48MP dual camera, and a long-lasting battery.",
+    price: 10999,
+    description: "Redmi: Fast performance, dual camera, long battery.",
     type: "Redmi",
     category: "SmartPhone",
   },
@@ -385,9 +380,8 @@ export const menu_products = [
     _id: "25",
     name: "Iphone 15 Pro",
     image: smartphone,
-    price: 12,
-    description:
-      "iPhone 15 Pro: The latest iPhone with A17 Bionic chip, Pro camera system, and durable design.",
+    price: 134999,
+    description: "iPhone 15 Pro: A17 Bionic chip, Pro camera system.",
     type: "Apple",
     category: "SmartPhone",
   },

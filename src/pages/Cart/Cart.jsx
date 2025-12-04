@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../../components/CartItem/CartItem";
 import styles from "../../components/NavBar/Navbar.module.css";
+import CartSummary from "../../components/CartItem/CartSummary";
 
 const Cart = ({ isActive, setActive }) => {
   const cart = useSelector((state) => state.cart);
@@ -15,6 +16,7 @@ const Cart = ({ isActive, setActive }) => {
               return <CartItem key={item._id} item={item} itemIndex={index} />;
             })}
           </div>
+          <CartSummary cart={cart} />
         </div>
       ) : (
         <div>

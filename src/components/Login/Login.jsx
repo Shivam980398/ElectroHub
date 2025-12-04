@@ -7,6 +7,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { userDetail } from "../../context/userContext";
 import { useAuth } from "../../context/AuthContext";
+import { useEffect } from "react";
 
 const Login = ({}) => {
   // const [currState, setCurrState] = useState("Login");
@@ -28,11 +29,15 @@ const Login = ({}) => {
 
   const [password, setPassword] = useState("");
 
+  // useEffect(() => {
+  //   console.log("Component re-rendered. Current currState:", currState);
+  // }, [currState]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let response;
     try {
-      // const backendUrl = "http://localhost:4001/api/v1";
+      // const backendUrl = "http://localhost:4002/api/v1";
       const backendUrl = "https://electrohub-aat2.onrender.com/api/v1";
 
       if (currState === "Login") {
@@ -80,7 +85,10 @@ const Login = ({}) => {
         });
         if (response.status === 200 && response.data) {
           toast.success("Reset Password Link Sent to your Email");
-          setCurrState("login");
+          // console.log(currState);
+          setCurrState("Login");
+          // console.log(currState);
+          // setDisplayLogin(true);
         } else {
           if (error.response && error.response.data) {
             toast.error(error.response.data.message || `Reset failed`);

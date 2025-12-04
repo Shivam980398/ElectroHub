@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 import Home from "./pages/Home/Home";
 import Cart from "./pages/Cart/Cart";
 import AboutUs from "./pages/AboutUS/AboutUs";
+import ContactUs from "./pages/ContactUs/ContactUs.jsx";
 import Login from "./components/Login/Login.jsx";
 import { Routes, Route, useParams } from "react-router-dom";
 import "./App.css";
@@ -53,6 +54,7 @@ const App = () => {
         />
         <Route path="/About" element={<AboutUs />} />
         <Route path={`/resetpassword/:token`} element={<ResetPass />} />
+        <Route path="/ContactUs" element={<ContactUs />} />
       </Routes>
       <br />
       <br />

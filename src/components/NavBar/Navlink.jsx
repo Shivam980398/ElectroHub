@@ -36,58 +36,58 @@ const Navlink = ({
     }
   };
   return (
-    <ul className={`${styles.navLinks} ${menuOpen ? styles.menuOpen : ""}`}>
-      {/* Used map so that no need to style each links */}
-      {navlinks.map((navlink, index) => (
-        <li
-          key={navlink}
-          className={`${styles.list} ${
-            isActive === navlink ? styles.active : ""
-          }`}
-          onClick={() => setActive(navlink)}
-        >
-          <Link className={styles.nav} to={getNavLinkPath(navlink)}>
-            {navlink}
-            {/*This display links name like home about us */}
-            {navlink === "Cart" ? (
-              cart.length > 0 && (
-                <span className={styles.cart_count}>{cart.length}</span>
-              )
-            ) : (
-              <> </>
-            )}
-          </Link>
-        </li>
-      ))}
-      <div>
-        {isAuthenticated ? (
-          <FaUserCircle
-            className="text-6xl text-gray-600 mb-2"
-            style={{
-              position: "absolute",
-              top: "-15px",
-              right: "52px",
-              height: "20px",
-              width: "20px",
-              cursor: "pointer",
-            }}
-          />
-        ) : null}
-      </div>
-      <button
-        type="button"
-        onClick={isAuthenticated ? handleLogout : () => setDisplayLogin(true)}
-        className={`${styles.search_icon}`}
-        style={{
-          position: "absolute",
-          top: "15px",
-          right: "40px",
-          cursor: "pointer",
-        }}
-      >
-        {isAuthenticated ? "Logout" : "SignIn"}
-      </button>
-    </ul>
+    <div>
+      {" "}
+      <ul className={`${styles.navLinks} ${menuOpen ? styles.menuOpen : ""}`}>
+        {/* Used map so that no need to style each links */}
+        {navlinks.map((navlink, index) => (
+          <li
+            key={navlink}
+            className={`${styles.list} ${
+              isActive === navlink ? styles.active : ""
+            }`}
+            onClick={() => setActive(navlink)}
+          >
+            <Link className={styles.nav} to={getNavLinkPath(navlink)}>
+              {navlink}
+              {/*This display links name like home about us */}
+              {navlink === "Cart" ? (
+                cart.length > 0 && (
+                  <span className={styles.cart_count}>{cart.length}</span>
+                )
+              ) : (
+                <> </>
+              )}
+            </Link>
+
+            <button
+              type="button"
+              onClick={
+                isAuthenticated ? handleLogout : () => setDisplayLogin(true)
+              }
+              className={`${styles.search_icon} ${styles.loginBtn}`}
+            >
+              {isAuthenticated ? "Logout" : "SignIn"}
+            </button>
+          </li>
+        ))}
+        {/* <div>
+          {isAuthenticated ? (
+            <FaUserCircle
+              className="text-6xl text-gray-600 mb-2"
+              style={{
+                position: "absolute",
+                top: "-15px",
+                right: "52px",
+                height: "20px",
+                width: "20px",
+                cursor: "pointer",
+              }}
+            />
+          ) : null}
+        </div> */}
+      </ul>
+    </div>
   );
 };
 
